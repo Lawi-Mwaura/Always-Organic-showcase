@@ -2,7 +2,7 @@
 
 ### Storefront engineering: client state and external service boundaries
 
-[Lawi Mwaura](https://github.com/Lawi-Mwaura) · [Public preview](https://always-organic.vercel.app)
+[Lawi Mwaura](https://github.com/Lawi-Mwaura)
 
 <p align="center"><img src="assets/always-organic.jpg" width="65%" alt="Always Organic homepage excerpt showing its typography and shopping links." /></p>
 
