@@ -12,9 +12,12 @@ People browsing a personal-care collection need clear product information, an un
 
 **Engineering challenge.** A storefront combines temporary client state, server-derived data, and external operations. Each needs a clear lifecycle, validation boundary, and useful empty or failure state.
 
-<p align="center"><img src="assets/always-organic.jpg" width="65%" alt="Always Organic homepage excerpt showing its typography and shopping links." /></p>
+<p align="center">
+  <a href="assets/always-organic.jpg"><img src="assets/always-organic.jpg" width="32%" alt="Always Organic: public homepage excerpt" /></a>
+  <a href="assets/organic-cart.jpg"><img src="assets/organic-cart.jpg" width="63%" alt="Always Organic: empty shopping bag" /></a>
+</p>
 
-*Actual public homepage excerpt captured on 1 October 2026. Customer records and commercial rules are excluded.*
+*Home excerpt captured on 1 October; empty shopping bag captured on 2 October 2026. No customer data or completed purchase is shown. The public catalog displayed zero items during this review. Open a screenshot for detail.*
 
 ## Technologies used
 
