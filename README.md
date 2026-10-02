@@ -4,23 +4,25 @@
 
 [Lawi Mwaura](https://github.com/Lawi-Mwaura)
 
+**Private source repository:** [Lawi-Mwaura/always-organic](https://github.com/Lawi-Mwaura/always-organic). Access is limited to authorized collaborators; GitHub may show a 404 to public visitors.
+
+## Problem statement
+
+People browsing a personal-care collection need clear product information, an understandable selection process and a cart that preserves their choices as they navigate. Always Organic provides a storefront for product discovery and shopping interactions.
+
+**Engineering challenge.** A storefront combines temporary client state, server-derived data, and external operations. Each needs a clear lifecycle, validation boundary, and useful empty or failure state.
+
 <p align="center"><img src="assets/always-organic.jpg" width="65%" alt="Always Organic homepage excerpt showing its typography and shopping links." /></p>
 
 *Actual public homepage excerpt captured on 1 October 2026. Customer records and commercial rules are excluded.*
 
-## Problem statement
-
-A storefront combines temporary client state, server-derived data, and external operations. Each needs a clear lifecycle, validation boundary, and useful empty or failure state.
-
 ## Technologies used
 
-TypeScript · Next.js · React · Tailwind CSS · Supabase · TanStack Query · Zod · Resend · Framer Motion
+TypeScript · Next.js · React · Tailwind CSS · Supabase / PostgreSQL · TanStack Query · Zod · Resend · Framer Motion · Axios · Leaflet / React Leaflet · Lucide / React Icons · Sonner · Jest · Testing Library
 
 ## Engineering scope
 
 A Next.js and React storefront with product discovery, a cart interface, server-derived data, and service integrations. This public overview covers the software responsibilities rather than commercial operations.
-
-**Technologies:** TypeScript, Next.js, React, Tailwind CSS, Supabase, TanStack Query, Zod, Resend, Framer Motion.
 
 ## System design
 
