@@ -24,33 +24,30 @@ A Next.js and React storefront with product discovery, a cart interface, server-
 
 ## System design
 
-**Reading the diagram:** blue = interface; green = processing; gold = data; purple = access, lifecycle, or operational control. Arrow labels describe the handoff between components.
+**Component architecture.** The boxes identify technologies and responsibilities; boundaries group the application runtime and managed backend. Relationships show dependencies and integration protocols, rather than a step-by-step processing flow.
 
 ```mermaid
-flowchart TB
-    UI[React storefront]
-    STATE[Cart and client state]
-    QUERY[TanStack Query cache]
-    DATA[(Supabase data services)]
-    subgraph SERVER[Next.js server · integration boundary]
-        VALIDATE[Runtime payload validation]
-        EXT[External service adapter]
-        RESULT[Explicit result handling]
-    end
-    UI -->|Local interaction| STATE
-    UI -->|Server-data query| QUERY
-    QUERY -->|Fetch and refresh| DATA
-    UI -->|Service request| VALIDATE
-    VALIDATE -->|Valid payload shape| EXT
-    EXT -->|Service response| RESULT
-    RESULT -->|Operation result| UI
-    classDef client fill:#EAF2FF,stroke:#3564A3,color:#142D4F,stroke-width:2px;
-    classDef service fill:#E7F5F0,stroke:#24745C,color:#123E32,stroke-width:2px;
-    classDef data fill:#FFF4D6,stroke:#966F20,color:#4D3810,stroke-width:2px;
-    classDef control fill:#F2ECFA,stroke:#7653A1,color:#382451,stroke-width:2px;
-    class UI,STATE client;
-    class VALIDATE,EXT,RESULT service;
-    class QUERY,DATA data;
+C4Component
+    title Always Organic - application architecture
+    Container_Boundary(app, "Next.js application") {
+        Component(web, "Storefront interface", "React + Tailwind CSS", "Discovery and client cart state")
+        Component(query, "Server-data client", "TanStack Query", "Fetch, cache and refresh")
+        Component(api, "Integration routes", "Next.js + Zod", "Runtime payload validation")
+    }
+    System_Boundary(supabase, "Supabase backend platform") {
+        ContainerDb(db, "Supabase Database", "PostgreSQL + data API", "Server-derived application records")
+    }
+    System_Ext(email, "Resend", "Notification service")
+    Rel(web, query, "Uses", "React hooks")
+    Rel(query, db, "Queries", "Supabase SDK / HTTPS")
+    Rel(web, api, "Calls", "HTTPS")
+    Rel(api, email, "Integrates", "Server-side API")
+    UpdateElementStyle(web, $bgColor="#24486B", $fontColor="#FFFFFF", $borderColor="#24486B")
+    UpdateElementStyle(query, $bgColor="#24486B", $fontColor="#FFFFFF", $borderColor="#24486B")
+    UpdateElementStyle(api, $bgColor="#24745C", $fontColor="#FFFFFF", $borderColor="#24745C")
+    UpdateElementStyle(db, $bgColor="#966F20", $fontColor="#FFFFFF", $borderColor="#966F20")
+    UpdateElementStyle(email, $bgColor="#7653A1", $fontColor="#FFFFFF", $borderColor="#7653A1")
+    UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")
 ```
 
 *Simplified responsibility map. It omits commercial rules, provider identifiers, private schema, and customer data.*
